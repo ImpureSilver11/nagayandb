@@ -6,4 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-nagayan = Entertainer.create(name: 'ながやん' )
+nagayan = Entertainer.create(name: 'ながやん')
+nagayan.images.create(path: "1", title: "test")
