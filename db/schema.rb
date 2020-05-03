@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 2020_05_03_073650) do
   create_table "images", force: :cascade do |t|
     t.string "path"
     t.string "title"
-    t.integer "tags_id", array: true
+    t.string "file_type"
+    t.integer "tags_id", default: [], null: false, array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "entertainer_id"
