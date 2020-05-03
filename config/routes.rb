@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/' => 'home#index'
+
   resources :entertainers do
     resources :images, controller: 'entertainers/images'
   end
