@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EntertainersController < ApplicationController
   def show
     @entertainer = Entertainer.find(params.permit(:id))
