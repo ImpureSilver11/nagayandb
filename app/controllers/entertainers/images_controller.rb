@@ -11,7 +11,8 @@ class Entertainers::ImagesController < ApplicationController
   def show
     build_params = params.permit(:entertainer_id, :id)
     @image = Entertainer.find(build_params[:entertainer_id]).images.find(build_params[:id])
-    render json: { file: @image.presigned_url }
+    pp @image.presigned_url
+    render json: { file: @image.presigned_url}
   end
 
   def create
