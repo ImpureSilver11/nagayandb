@@ -2,7 +2,7 @@
 
 class Image < ApplicationRecord
   belongs_to :entertainer
-  # mount_uploader :image, ImageUploader
+  mount_uploader :path, ImageUploader
 
   def presigned_url
     Aws::S3::Presigner.new(client: s3_client)
