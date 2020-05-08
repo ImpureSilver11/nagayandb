@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Entertainers::ImagesController < ApplicationController
   def index
     build_params = params.permit(:entertainer_id)
@@ -16,11 +15,11 @@ class Entertainers::ImagesController < ApplicationController
   end
 
   def create
-    build_params = params.permit(:entertainer_id, :image, :title)
-    pp build_params[:image]
-    @entertainer = Entertainer.find(build_params[:entertainer_id])
-    @entertainer.images.create!(path: build_params[:image], file_type: 'jpg', title: build_params[:title])
-
+    build_params = params.permit(:entertainer_id, :title, :image)
+    @image = Entertainer.find(build_params[:entertainer_id]).images.new
+    @image.title= build_params[:title]
+    @image.path = build_params[:image]
+    @image.save!
     render json: { status: 200, code: 200, message: 'done' }
   rescue StandardError => e
     pp e
@@ -31,4 +30,5 @@ class Entertainers::ImagesController < ApplicationController
   def search
     # TODO
   end
+
 end

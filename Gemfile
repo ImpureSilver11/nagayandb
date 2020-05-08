@@ -25,12 +25,13 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'carrierwave'
+gem 'carrierwave-base64'
 gem 'mini_magick'
 
 gem 'aws-sdk-s3'
 gem 'fog-aws'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_05_03_113322) do
   create_table "images", force: :cascade do |t|
     t.string "path"
     t.string "title"
-    t.string "file_type", null: false
     t.integer "tags_id", default: [], null: false, array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

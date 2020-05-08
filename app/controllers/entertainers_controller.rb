@@ -2,8 +2,8 @@
 
 class EntertainersController < ApplicationController
   def show
-    @entertainer = Entertainer.find(params.permit(:id))
-    render json @entertainer
+    @entertainer = Entertainer.find(params.permit(:id)[:id])
+    render json: @entertainer
   end
 
   def index

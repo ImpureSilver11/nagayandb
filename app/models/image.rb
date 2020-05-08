@@ -2,21 +2,17 @@
 
 class Image < ApplicationRecord
   belongs_to :entertainer
-  mount_uploader :path, ImageUploader
+  mount_base64_uploader :path, ImageUploader
+  validates_presence_of :path, :title
 
   def presigned_url
     Aws::S3::Presigner.new(client: s3_client)
                       .presigned_url(
                         :get_object,
                         bucket: Rails.application.credentials.dig(:aws, :bucket),
-                        key: file_path,
+                        key: path.current_path,
                         expires_in: 60
                       )
-  end
-
-  def file_path
-    # TODO: create filename
-    "#{path}.#{file_type}"
   end
 
   def s3_client

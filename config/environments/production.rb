@@ -99,5 +99,5 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.front_path = 'https://admiring-wilson-e9613f.netlify.app/'
+  config.front_path = 'https://admiring-wilson-e9613f.netlify.app/*'
 end

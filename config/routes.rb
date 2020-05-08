@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  match '*path' => 'options_request#preflight', via: :options
 
   get '/' => 'home#index'
   resources :entertainers do

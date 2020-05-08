@@ -5,7 +5,6 @@ FactoryBot.define do
     sequence(:id)
     sequence(:path, &:to_s)
     title { 'string' }
-    file_type { 'jpg' }
     tags_id { [] }
     :entertainer
   end
