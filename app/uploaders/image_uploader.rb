@@ -9,6 +9,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :file
   end
 
+
+  def size_range
+    1..5.megabytes
+  end
   def store_dir
     model.entertainer.name
   end
