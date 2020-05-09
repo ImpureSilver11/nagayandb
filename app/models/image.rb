@@ -3,7 +3,8 @@
 class Image < ApplicationRecord
   belongs_to :entertainer
   mount_base64_uploader :path, ImageUploader
-  validates_presence_of :path, :title
+  validates_presence_of :path
+  validates :title, presence: true
 
   def presigned_url
     Aws::S3::Presigner.new(client: s3_client)

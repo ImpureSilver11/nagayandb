@@ -10,7 +10,6 @@ class Entertainers::ImagesController < ApplicationController
   def show
     build_params = params.permit(:entertainer_id, :id)
     @image = Entertainer.find(build_params[:entertainer_id]).images.find(build_params[:id])
-    pp @image.presigned_url
     render json: { file: @image.presigned_url }
   end
 
@@ -19,12 +18,9 @@ class Entertainers::ImagesController < ApplicationController
     @image = Entertainer.find(build_params[:entertainer_id]).images.new
     @image.title= build_params[:title]
     @image.path = build_params[:image]
+    @image.validate!
     @image.save!
-    render json: { status: 200, code: 200, message: 'done' }
-  rescue StandardError => e
-    pp e
-    pp e.message
-    render json: { status: 500, code: 500, message: e.message }
+    render json: { status: 200, message: 'done' }
   end
 
   def search
