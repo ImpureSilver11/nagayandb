@@ -21,6 +21,7 @@ class DiscordBot
     @bot.command :ping do |event|
       event.send_message("pong！ #{event.user.name}")
     end
+  end
 end
 
 discord_bot = DiscordBot.new
