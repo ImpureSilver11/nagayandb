@@ -1,18 +1,10 @@
 require "discordrb"
-require 'dotenv'
-require 'net/http'
-require 'date'
-require 'json'
-
-Dotenv.load
 
 class DiscordBot
   attr_accessor :bot
 
-  # BOT_CLIENT_ID = Rails.application.credentials.dig(:discord, :crient_id)
-  # BOT_TOKEN = Rails.application.credentials.dig(:discord, :token)
-  BOT_CLIENT_ID = ENV['DISCORD_CRIENT_ID']
-  BOT_TOKEN = ENV['DISCORD_TOKEN']
+  BOT_CLIENT_ID = Rails.application.credentials.dig(:discord, :crient_id)
+  BOT_TOKEN = Rails.application.credentials.dig(:discord, :token)
 
   def initialize
     @bot = Discordrb::Commands::CommandBot.new(token: BOT_TOKEN, client_id: BOT_CLIENT_ID, prefix: "/")
