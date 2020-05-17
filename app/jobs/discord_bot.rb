@@ -1,10 +1,13 @@
 require "discordrb"
+require 'rails'
+# require 'rails/application'
+# require 'active_support'
 
 class DiscordBot
   attr_accessor :bot
 
-  BOT_CLIENT_ID = Rails.application.credentials.dig(:discord, :crient_id).freeze
-  BOT_TOKEN = Rails.application.credentials.dig(:discord, :token).freeze
+  BOT_CLIENT_ID = Rails.application.credentials.dig(:discord, :crient_id)
+  BOT_TOKEN = Rails.application.credentials.dig(:discord, :token)
 
   def initialize
     @bot = Discordrb::Commands::CommandBot.new(token: BOT_TOKEN, client_id: BOT_CLIENT_ID, prefix: "/")
