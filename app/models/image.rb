@@ -25,4 +25,9 @@ class Image < ApplicationRecord
       )
     ).client
   end
+
+  def gacha(entertainer_id = 1)
+    ids = Entertainer.find(entertainer_id).images.map(&:id)
+    Image.find(ids[rand(ids.count)])
+  end
 end

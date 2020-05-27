@@ -28,9 +28,7 @@ class Entertainers::ImagesController < ApplicationController
   end
 
   def gacha_nagayan
-    ids = Entertainer.first.images.map(&:id)
-    image = Image.find(ids[rand(ids.count)])
-    image.presigned_url
+    Image.gacha
   end
 
 end
