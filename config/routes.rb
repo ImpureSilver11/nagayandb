@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/' => 'home#index'
   resources :entertainers do
     resources :images, controller: 'entertainers/images'
+    resource :image, only: [] do
+      get :gacha_nagayan
+    end
   end
   resources :tags do
   end
