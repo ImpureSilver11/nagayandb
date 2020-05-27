@@ -28,7 +28,7 @@ class Entertainers::ImagesController < ApplicationController
   end
 
   def gacha_nagayan
-    Image.gacha
+    Image.new.gacha
   end
 
 end
