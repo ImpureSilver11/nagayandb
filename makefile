@@ -15,7 +15,8 @@ stop:
 	docker-compose down
 
 migrate:
-	docker-compose exec app bundle exec rails db:create db:migrate db:seed
+	docker-compose exec app bundle exec rails db:environment:set RAILS_ENV=development
+	docker-compose exec app bundle exec rails db:drop db:create db:migrate:reset db:seed
 
 db:
 	docker-compose exec postgres bash
