@@ -1,5 +1,7 @@
 require 'json'
 
+Pokemon.destroy_all
+
 File.open("./db/seeds/pokemon_data.json") do |j|
   hash = JSON.load(j)
   hash['data'].each do |d|
