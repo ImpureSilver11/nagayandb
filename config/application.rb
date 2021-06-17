@@ -43,9 +43,9 @@ module Nagayandb
       allow do
         # origins Rails.application.config.front_path
         origins '*'
-        resource "*",
-          headers: :any,
-          methods: [:get, :post, :options, :head]
+        resource '*',
+                 headers: :any,
+                 methods: %i[get post options head]
       end
     end
   end

@@ -9,10 +9,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :file
   end
 
-
   def size_range
     1..5.megabytes
   end
+
   def store_dir
     model.entertainer.name
   end
@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # アップロードを許可する拡張機能のホワイトリストを追加します。
   # 画像の場合、次のようなものを使用できます。
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # アップロードされたファイルのファイル名を上書きします。

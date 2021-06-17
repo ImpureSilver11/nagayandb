@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'carrierwave/orm/activerecord'
 require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
@@ -25,4 +26,4 @@ else
     config.remove_previously_stored_files_after_update = false
   end
 end
-CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:].\-+]/
