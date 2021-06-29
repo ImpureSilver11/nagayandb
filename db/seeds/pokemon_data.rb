@@ -24,5 +24,6 @@ File.open('./db/seeds/pokemon_data.json') do |j|
       speed: d['stats']['speed'],
       pokemon: pokemon
     )
+    puts "#{d['name']} created"
   end
 end
